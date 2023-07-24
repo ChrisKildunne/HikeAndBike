@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<h1>Biking Trails near Salt Lake</h1>
+
+<p><a href="/trails/bike/new">Add Trail</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Difficulty</th>
+      <th>Mileage</th>
+      <th>Rating</th>
+      <th>Trail Style</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% bikingTrails.forEach(trail => { %>
+      <tr>
+        <td><a href="/trails/bike/<%= trail.id %>"><%= trail.name %></a></td>
+        <td><%= trail.difficulty %></td>
+        <td><%= trail.mileage %></td>
+        <td><%= trail.rating %></td>   
+        <td><%= trail.trailStyle %></td>   
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>

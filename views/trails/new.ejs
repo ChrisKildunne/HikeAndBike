@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+<h2>Add a new trail</h2>
+
+<% if (urlPath === '/trails/hike/new') { %>
+  <form class="hike-trail-form" action="/trails/hike" method="POST"> 
+    <label>Trail Name:
+      <input type="text" name="name">
+    </label>
+    <label>Difficulty:</label>
+    <select name="difficulty">
+      <option value="Easy">Easy</option>
+      <option value="Moderate">Moderate</option>
+      <option value="Hard">Hard</option>
+    </select>
+    <label>Distance in Miles:</label>
+    <input type="text" name="mileage">
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button type="submit" value="Add Hiking Trail">Add Hiking Trail</button>
+  </form>
+<% } %>
+
+<% if (urlPath === '/trails/bike/new') { %>
+  <form class="bike-trail-form" action="/trails/bike" method="POST">
+    <label>Trail Name:
+      <input type="text" name="name">
+    </label>
+    <label>Difficulty:</label>
+    <select name="difficulty">
+      <option value="Easy">Easy</option>
+      <option value="Moderate">Moderate</option>
+      <option value="Hard">Hard</option>
+    </select>
+    <label>Distance in Miles:</label>
+    <input type="text" name="mileage">
+    <label>Rating:</label>
+    <select name="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <label>Style:</label>
+    <select name="trailStyle">
+      <option value="Tech">Tech</option>
+      <option value="Flow">Flow</option>
+      <option value="Jump">Jump</option>
+    </select>
+    <button type="submit" value="Add Biking Trail">Add Biking Trail</button>
+  </form>
+<% } %>
+
+<%- include('../partials/footer') %>
