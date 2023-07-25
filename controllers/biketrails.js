@@ -3,15 +3,14 @@ const BikingTrail = require('../models/biketrails');
 function newTrail(req, res) {
   res.render('trails/new', { errorMsg: '', urlPath: req.originalUrl });
 }
-
 async function show(req, res) {
   try {
-    const trail = await BikingTrail.findById(req.params.id);
-   
-    res.render('trails/updates', { trail});
+    const trailId = req.params.id;
+    const trail = await BikingTrail.findById(trailId).populate('update').exec();
+    res.render('trails/show', { trail });
   } catch (err) {
-    console.error('Error', err);
-    res.status(500).send('Error fetching trail');
+    console.error('Error:', err);
+    res.redirect('/');
   }
 }
 
@@ -22,7 +21,6 @@ async function index(req, res) {
     res.render('trails/bike', { bikingTrails });
   } catch (err) {
     console.error('Error fetching biking trails:', err);
-    res.status(500).send('Error fetching biking trails');
   }
 }
 

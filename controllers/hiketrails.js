@@ -6,7 +6,7 @@ async function index(req, res) {
     res.render('trails/hike', { hikingTrails });
   } catch (err) {
     console.error('Error fetching hiking trails:', err);
-    res.status(500).send('Error fetching hiking trails');
+    ;
   }
 }
 async function create(req, res) {
@@ -29,8 +29,9 @@ function newTrail(req,res){
 }
 
 async function show(req,res){
-  try { const trail = await HikingTrail.findById(req.params.id)
-  res.render('trails/updates',{trail})
+  try { 
+    const trail = await HikingTrail.findById(req.params.id)
+  res.render('updates/new',{trail})
   } catch(err) {
     console.error('Error',err)
   }

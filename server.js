@@ -14,6 +14,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const hikeTrailsRouter = require('./routes/hiketrails');
 const bikeTrailsRouter = require('./routes/biketrails');
+const updatesRouter = require('./routes/updates')
 const app = express();
 
 // view engine setup
@@ -45,7 +46,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/trails/hike',hikeTrailsRouter)
 app.use('/trails/bike',bikeTrailsRouter)
-
+app.use('/',updatesRouter)
 
 
 // catch 404 and forward to error handler
