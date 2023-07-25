@@ -1,0 +1,53 @@
+<%- include('../partials/header') %>
+
+<h2>Trail Details</h2>
+<div class = "trail-details">
+    <h1><%= trail.name %> Trail</h1>
+    <table class="table">
+    <td>Difficulty: <%= trail.difficulty %></td>
+    <td>Mileage: <%= trail.mileage %></td>
+    <td>Rating: <%= trail.rating %></td>
+    <td>Description: <%= trail.description %></td>
+    </table>
+</div>
+
+<% if (user) { %>
+    <form class="update-form" action="/trails/hike/<%= trail._id %>/showhike" method="POST">
+      <label>Update
+        <input type="text" name="update" col="6" row="10">
+      </label>
+      <label>Date You Rode the Trail
+        <input type="date" name="dateAdded">
+      </label>
+    
+      <input type="submit" value="Update Trail">
+    </form>
+    <% } %>
+    
+    <table>
+        <tr>
+          <th>User</th>
+          <th>Update</th>
+          <th>Date</th>
+          <th>  Edit </th>
+        </tr>
+    
+          <% trail.updateHike.forEach(function(update){ %>
+          <tr>
+            <td class="review-user"><img alt="avatar" src="<%= update.userAvatar %>" referrerpolicy="no-referrer" ><%= update.userName %></td>
+            <td><%= update.update %></td>
+            <td><%= update.dateAdded.toDateString() %></td>
+            <td>
+              <form class="edit-form" action="/trails/hike/<%= trail._id %>?_method=PUT" method="POST">
+                <button class="edit-btn">Edit</button>
+              </form>
+              
+              
+            </td>
+          </tr>
+          <% }); %>
+        
+    </table>
+      
+
+<%- include('../partials/footer') %>

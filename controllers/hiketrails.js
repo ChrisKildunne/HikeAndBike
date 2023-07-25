@@ -28,12 +28,14 @@ function newTrail(req,res){
   res.render('trails/new', { errorMsg: '', urlPath: req.originalUrl});
 }
 
-async function show(req,res){
-  try { 
-    const trail = await HikingTrail.findById(req.params.id)
-  res.render('updates/new',{trail})
-  } catch(err) {
-    console.error('Error',err)
+async function show(req, res) {
+  try {
+    const trailId = req.params.id;
+    const trail = await HikingTrail.findById(trailId).populate('updateHike').exec();
+    res.render('trails/showhike', { trail });
+  } catch (err) {
+    console.error('Error:', err);
+    res.redirect('/');
   }
 }
 

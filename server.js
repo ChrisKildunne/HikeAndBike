@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 
 require('dotenv').config();
@@ -15,6 +16,7 @@ const usersRouter = require('./routes/users');
 const hikeTrailsRouter = require('./routes/hiketrails');
 const bikeTrailsRouter = require('./routes/biketrails');
 const updatesRouter = require('./routes/updates')
+const updatesHikeRouter = require('./routes/updatesHike')
 const app = express();
 
 // view engine setup
@@ -47,7 +49,8 @@ app.use('/users', usersRouter);
 app.use('/trails/hike',hikeTrailsRouter)
 app.use('/trails/bike',bikeTrailsRouter)
 app.use('/',updatesRouter)
-
+app.use('/',updatesHikeRouter)
+app.use(methodOverride('_method'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

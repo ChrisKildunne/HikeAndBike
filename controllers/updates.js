@@ -1,5 +1,6 @@
 const BikingTrail = require('../models/biketrails');
 
+
 // async function newUpdate(req, res) {
 //   try {
 //     const trailId = req.params.id;
@@ -36,6 +37,6 @@ async function create(req, res) {
 
 
 module.exports = {
-  //new: newUpdate,
   create
+  
 };
