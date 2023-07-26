@@ -9,7 +9,11 @@ const updateHikeSchema = new Schema ({
   photo:{
      data: Buffer,
     contentType: String   
-  },  
+  },
+  parking: {
+    type: String,
+    enum: ['Lot Full','Almost Full', 'Half Full', 'Pretty Much Empty','Empty']
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',

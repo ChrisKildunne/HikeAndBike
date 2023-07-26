@@ -32,7 +32,8 @@
       <th>User</th>
       <th>Update</th>
       <th>Date</th>
-      <th>  Edit </th>
+      <th>  </th>
+      <th>  </th>
     </tr>
 
       <% trail.update.forEach(function(update){ %>
@@ -41,11 +42,11 @@
         <td><%= update.update %></td>
         <td><%= update.dateAdded.toDateString() %></td>
         <td>
-          <form class="edit-form" action="/trails/bike/<%= trail._id %>?_method=PUT" method="POST">
-            <button class="edit-btn">Edit</button>
-          </form>
-          
-          
+          <% if (user?._id.equals(update.user)) { %>
+            <form action="/trails/bike/<%= trail._id %>?_method=DELETE" method="POST">
+              <button type="submit">X</button>
+            </form>            
+          <% } %>
         </td>
       </tr>
       <% }); %>

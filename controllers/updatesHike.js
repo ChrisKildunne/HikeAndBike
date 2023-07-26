@@ -5,10 +5,11 @@ async function create(req, res) {
     const userId = req.user._id.toString();
     try {
       const trail = await HikingTrail.findById(trailId);
-      const { update, dateAdded } = req.body;
+      const { update, dateAdded, parking } = req.body;
       const newUpdate = {
         update,
         dateAdded: new Date(dateAdded),
+        parking,
         user: userId,
         userName: req.user.name,
         userAvatar: req.user.avatar
@@ -23,18 +24,28 @@ async function create(req, res) {
     }
   }
   async function edit(req, res) {
+    const trailId = req.params.id;
+    const updateId = req.params.updateId;
     try {
-      const updateId = req.params.id;
-      const trail = await BikingTrail.findOne({ 'update._id': updateId });
-      const update = trail.update.find(update => update._id.toString() === updateId);
-      
-      res.render(`/trails/hike/${updateId}`, {
-        title: 'Edit Trail Update',
-        update,
-      });
+      const trail = await HikingTrail.findById(trailId);
+      const update = trail.updateHike.id(updateId);
+      res.render('trails/editParking', { trail, update });
     } catch (err) {
-      console.error('Error fetching trail update:', err);
-      res.redirect('/');
+      res.redirect(`/trails/hike/${trailId}`);
+    }
+  }
+  
+  async function updateParking(req, res) {
+    const trailId = req.params.id;
+    console.log(req.body)
+    try {
+      const trail = await HikingTrail.findById(trailId);
+      const  parking  = req.body;
+      await trail.save();
+      res.redirect(`/trails/hike/${trailId}`);
+    } catch (err) {
+      res.redirect(`/`);
+      console.log(err)
     }
   }
   
@@ -43,6 +54,7 @@ async function create(req, res) {
   
   module.exports = {
     create,
-    edit
+    edit,
+    updateParking
   };
   

@@ -43,14 +43,14 @@ app.use(function (req, res, next) {
 
 require('./config/passport');
 
-
+app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/trails/hike',hikeTrailsRouter)
 app.use('/trails/bike',bikeTrailsRouter)
 app.use('/',updatesRouter)
 app.use('/',updatesHikeRouter)
-app.use(methodOverride('_method'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,9 +3,7 @@ const router = express.Router();
 const updateCtrl = require('../controllers/updatesHike')
 
 router.post('/trails/hike/:id/showhike', updateCtrl.create); 
-//router.get('/trails/bike/:id',updateCtrl.new)
-router.get('/trails/hike/:id/show', updateCtrl.edit);
-//router.put('/trails/bike/:id', updateCtrl.update);
-
+router.get('/trails/hike/:id/editParking', updateCtrl.edit);
+router.put('/trails/hike/:id', updateCtrl.updateParking);
 
 module.exports = router;

@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<h2>Edit Parking Status</h2>
+<form action="/trails/hike/<%= trail._id %>?_method=PUT" method="POST">
+  <label>Parking Status</label>
+  <select name="parking">
+    <option value="Lot Full">Lot Full</option>
+    <option value="Almost Full">Almost Full</option>
+    <option value="Half Full">Half Full</option>
+    <option value="Pretty Much Empty">Pretty Much Empty</option>
+    <option value="Empty">Empty</option>
+  </select> 
+  <button type="submit">Update Parking</button>
+</form>
+
+<%- include('../partials/footer') %>
