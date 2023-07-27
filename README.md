@@ -6,7 +6,7 @@ A simple website that allows users to log in and add hiking and biking trails ar
 Salt Lake Trails Community is a user-driven website designed to provide a platform for outdoor enthusiasts to share and explore hiking and biking trails in the Salt Lake area. The website allows users to contribute by adding new trails and posting updates, which are essentially reviews of their experiences on the trails.
 
 ## Screenshots
-![Homepage](<Screenshot 2023-07-27 at 11.51.09 AM.png>)
+![Homepage](<Screenshot 2023-07-27 at 11.50.19 AM.png>)
 ![Hiking Trails](<Screenshot 2023-07-27 at 11.50.28 AM.png>)
 ![Edit Parking Status](<Screenshot 2023-07-27 at 11.50.57 AM.png>)
 ![Hiking Trail Updates](<Screenshot 2023-07-27 at 11.50.45 AM.png>)
@@ -17,7 +17,7 @@ Salt Lake Trails Community is a user-driven website designed to provide a platfo
 - Back-end: Node.js, Express.js
 - Database: Mongoose
 ## Getting Started 
-[Click here to check out Hike and Bike]()
+[Click here to check out Hike and Bike](https://radiant-woodland-68029-e4f2ae2f9304.herokuapp.com/)
 
 ## Features
 Key Features:
