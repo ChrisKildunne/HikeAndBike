@@ -16,7 +16,7 @@
       <label>Update
         <input type="text" name="update" col="6" row="10">
       </label>
-      <label>Parking Staus</label>
+      <label>Trailhead Parking Lot Staus</label>
       <select name="parking">
         <option value="Lot Full">Lot Full</option>
         <option value="Almost Full">Almost Full</option>
@@ -25,7 +25,7 @@
         <option value="Empty">Empty</option>
       </select>  
       <label>Date and Time you were at the trailhead 
-        <input type="date" name="dateAdded">
+      <input type="datetime-local" name="dateAdded">
       </label>
     
       <input type="submit" value="Update Trail">
@@ -37,7 +37,7 @@
           <th>User</th>
           <th>Update</th>
           <th>Date</th>
-          <th>Parking Status</th>
+          <th>Parking Lot Status</th>
           <th>  Edit </th>
         </tr>
     
@@ -45,13 +45,22 @@
           <tr>
             <td class="review-user"><img alt="avatar" src="<%= update.userAvatar %>" referrerpolicy="no-referrer" ><%= update.userName %></td>
             <td><%= update.update %></td>
-            <td><%= update.dateAdded.toDateString() %></td>
+            <td><%= update.dateAdded.toLocaleString() %></td>
             <td><%= update.parking %></td>
             <td>
                 <% if (user?._id.equals(update.user)) { %>
-                  <form action="/trails/hike/<%= trail._id %>/editParking%>" method="GET">
-                    <button type="submit">Edit Parking</button>
+                  <form action= "/trails/hike/<%= trail._id %>/<%= update._id %>/editParking%>" method="GET">
+                  <button type="submit">Edit Parking</button>
+                  </form>
                     <% } %>
+            </td>
+            <td>
+              <% if (user?._id.equals(update.user)) { %>          
+                <form action="/trails/hike/<%= trail._id %>?_method=DELETE" method="POST">
+                <input type="hidden" name="updateId" value="<%= update._id %>">
+                <button type="submit">X</button>
+                </form>            
+              <% } %>
             </td>
           </tr>
           <% }); %>

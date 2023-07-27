@@ -44,6 +44,7 @@
         <td>
           <% if (user?._id.equals(update.user)) { %>
             <form action="/trails/bike/<%= trail._id %>?_method=DELETE" method="POST">
+              <input type="hidden" name="updateId" value="<%= update._id %>">
               <button type="submit">X</button>
             </form>            
           <% } %>
