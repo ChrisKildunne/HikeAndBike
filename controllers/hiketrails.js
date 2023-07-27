@@ -32,7 +32,7 @@ async function show(req, res) {
   try {
     const trailId = req.params.id;
     const trail = await HikingTrail.findById(trailId).populate('updateHike').exec();
-    res.render('trails/showhike', { trail });
+    res.render('trails/showhike', { trail, trailName: trail.name });
   } catch (err) {
     console.error('Error:', err);
     res.redirect('/');

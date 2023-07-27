@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+<div class= bike-pic>
 <h1>Biking Trails near Salt Lake</h1>
 
 <p><a href="/trails/bike/new">Add Trail</a></p>
@@ -16,7 +17,7 @@
   <tbody>
     <% bikingTrails.forEach(trail => { %>
       <tr>
-        <td><a href="/trails/bike/<%= trail.id %>"><%= trail.name %></a></td>
+        <td><p><a href="/trails/bike/<%= trail.id %>"><%= trail.name %></a></p></td>
         <td><%= trail.difficulty %></td>
         <td><%= trail.mileage %></td>
         <td><%= trail.rating %></td>   
@@ -26,5 +27,5 @@
     <% }); %>
   </tbody>
 </table>
-
+</div>
 <%- include('../partials/footer') %>

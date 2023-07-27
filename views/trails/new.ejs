@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <h2>Add a new trail</h2>
-
+<div class = hike-pic>
 <% if (urlPath === '/trails/hike/new') { %>
   <form class="hike-trail-form" action="/trails/hike" method="POST"> 
     <label>Trail Name:
@@ -22,13 +22,15 @@
       <option value="4">4</option>
       <option value="5">5</option>
     </select>
-    <label>Trail Description:
-      <textarea rows="6" cols="30" type="text" name="description"></textarea>
-    </label>
-    <button type="submit" value="Add Hiking Trail">Add Hiking Trail</button>
-  </form>
+    <label for="description">Trail Description:</label>
+    <textarea id="description" rows="6" cols="30" name="description"></textarea>
+    <div class="button-container">
+      <button type="submit" value="Add Biking Trail">Add Biking Trail</button>
+    </div>
+      </form>
 <% } %>
-
+</div>
+<div class = bike-pic>
 <% if (urlPath === '/trails/bike/new') { %>
   <form class="bike-trail-form" action="/trails/bike" method="POST">
     <label>Trail Name:
@@ -56,11 +58,12 @@
       <option value="Flow">Flow</option>
       <option value="Jump">Jump</option>
     </select>
-    <label>Trail Description:
-      <textarea rows="6" cols="30" type="text" name="description"></textarea>
-    </label>
-    <button type="submit" value="Add Biking Trail">Add Biking Trail</button>
-  </form>
+    <label for="description">Trail Description:</label>
+    <textarea id="description" rows="6" cols="30" name="description"></textarea>
+    <div class="button-container">
+      <button type="submit" value="Add Biking Trail">Add Biking Trail</button>
+    </div>
+      </form>
 <% } %>
-
+</div>
 <%- include('../partials/footer') %>

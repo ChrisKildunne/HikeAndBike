@@ -1,15 +1,27 @@
 <%- include('../partials/header') %>
-
-<h2>Trail Details</h2>
+<div class= bike-pic>
+<h2><%= trailName %> Trail Details</h2>
+<div class="trail-details">
+  <h1><%= trail.name %> Trail</h1>
+  <table class="table">
 <div class = "trail-details">
-    <h1><%= trail.name %> Trail</h1>
-    <table class="table">
-    <td>Difficulty: <%= trail.difficulty %></td>
-    <td>Mileage: <%= trail.mileage %></td>
-    <td>Rating: <%= trail.rating %></td>
-    <td>Style: <%= trail.trailStyle %> </td>
-    <td>Description: <%= trail.description %></td>
-    </table>
+  <table>
+  <tr>
+    <td><strong>Difficulty:</strong> <%= trail.difficulty %></td>
+  </tr>
+  <tr>
+    <td><strong>Mileage:</strong> <%= trail.mileage %> miles</td>
+  </tr>
+  <tr>
+    <td><strong>Rating:</strong> <%= trail.rating %></td>
+  </tr>
+  <tr>
+    <td><strong>Style:</strong> <%= trail.trailStyle %></td>
+  </tr>
+  <tr>
+    <td><strong>Description:</strong> <%= trail.description %></td>
+  </tr>
+</table>
 </div>
 
 
@@ -22,18 +34,20 @@
   <label>Date You Rode the Trail
     <input type="date" name="dateAdded">
   </label>
-
-  <input type="submit" value="Update Trail">
+ <div class="button-container">
+      <button type="submit" value="Update Trail">Add Trail Update</button>
+    </div>
 </form>
 <% } %>
 
-<table>
+<table class = 'bike-pic'>
     <tr>
       <th>User</th>
       <th>Update</th>
       <th>Date</th>
-      <th>  </th>
-      <th>  </th>
+     
+      <th>Trail Update Out of Date? Go Ahead and Delete it</th>
+    
     </tr>
 
       <% trail.update.forEach(function(update){ %>
@@ -41,7 +55,7 @@
         <td class="review-user"><img alt="avatar" src="<%= update.userAvatar %>" referrerpolicy="no-referrer" ><%= update.userName %></td>
         <td><%= update.update %></td>
         <td><%= update.dateAdded.toDateString() %></td>
-        <td>
+         <td>
           <% if (user?._id.equals(update.user)) { %>
             <form action="/trails/bike/<%= trail._id %>?_method=DELETE" method="POST">
               <input type="hidden" name="updateId" value="<%= update._id %>">
@@ -53,5 +67,5 @@
       <% }); %>
     
 </table>
-  
+</div>
 <%- include('../partials/footer') %>

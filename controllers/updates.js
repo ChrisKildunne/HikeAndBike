@@ -13,13 +13,12 @@ async function create(req, res) {
       userName: req.user.name,
       userAvatar: req.user.avatar
     };
-
     trail.update.push(newUpdate);
     await trail.save();
     res.redirect(`/trails/bike/${trailId}`);
   } catch (err) {
-    console.error('Error creating new update:', err);
-    res.redirect('/');
+    console.log(err.message);
+    res.redirect(`/trails/bike/${trailId}`)
   }
 }
 async function deleteUpdate(req, res) {
@@ -37,33 +36,7 @@ async function deleteUpdate(req, res) {
   }
 }
 
-// async function edit(req,res){
-//   const trailId = req.params.id;
-//   const updateId = req.params.updateId;
-//   try{
-//     const trail = await BikingTrail.findById(trailId)
-//     const review = trail.update.id(updateId)
 
-
-//     res.render(`/trails/bike/${trailId}`, {trail,review})
-//   }catch(err){
-//     res.redirect('/')
-//   }
-// }
-// async function update(req,res){
-//   const trailId = req.params.id;
-//   const updateId = req.params.updateId;
-//   try{
-//     const trail = await BikingTrail.findById(trailId)
-//     const review = trail.update.id(updateId)
-//     update.update = req.body.review
-//     update.dateAdded = newDate(req.body.dateAdded)
-//     await trail.save();
-//     res.redirect(`/trails/bike${trailId}`)
-//   }catch(err){
-//     res.redirect('/')
-//   }
-// }
 module.exports = {
   create,
   delete: deleteUpdate,

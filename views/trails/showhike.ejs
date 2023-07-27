@@ -1,14 +1,23 @@
 <%- include('../partials/header') %>
-
-<h2>Trail Details</h2>
+<div class= hike-pic>
+<h2><%= trailName %> Trail Details</h2>
+<div class="trail-details">
+  <h1><%= trail.name %> Trail</h1>
 <div class = "trail-details">
-    <h1><%= trail.name %> Trail</h1>
-    <table class="table">
-    <td>Difficulty: <%= trail.difficulty %></td>
-    <td>Mileage: <%= trail.mileage %></td>
-    <td>Rating: <%= trail.rating %></td>
-    <td>Description: <%= trail.description %></td>
-    </table>
+  <table>
+  <tr>
+    <td><strong>Difficulty:</strong> <%= trail.difficulty %></td>
+  </tr>
+  <tr>
+    <td><strong>Mileage:</strong> <%= trail.mileage %></td>
+  </tr>
+  <tr>
+    <td><strong>Rating:</strong> <%= trail.rating %> miles</td>
+  </tr>
+  <tr>
+    <td><strong>Description:</strong> <%= trail.description %></td>
+  </tr>
+</table>
 </div>
 
 <% if (user) { %>
@@ -28,17 +37,20 @@
       <input type="datetime-local" name="dateAdded">
       </label>
     
-      <input type="submit" value="Update Trail">
-    </form>
+      <div class="button-container">
+        <button type="submit" value="Update Trail">Add Trail Update</button>
+      </div>
+      </form>
     <% } %>
     
-    <table>
+    <table class = 'hike-pic'>
         <tr>
           <th>User</th>
           <th>Update</th>
           <th>Date</th>
           <th>Parking Lot Status</th>
-          <th>  Edit </th>
+          <th>Edit</th>
+          <th>Trail Update Out of Date? Go Ahead and Delete it</th>
         </tr>
     
           <% trail.updateHike.forEach(function(update){ %>
@@ -67,5 +79,5 @@
         
     </table>
       
-
+  </div>
 <%- include('../partials/footer') %>

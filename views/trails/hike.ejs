@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
+<div class= hike-pic>
 <h1>Hiking Trails near Salt Lake</h1>
-
+<div class = "link-container"></div>
 <p><a href="/trails/hike/new">Add Trail</a></p>
-
+</div>
 <table>
   <thead>
     <tr>
@@ -15,7 +16,7 @@
   <tbody>
     <% hikingTrails.forEach(trail => { %>
       <tr>
-        <td><a href="/trails/hike/<%= trail.id %>"><%= trail.name %></a></td>
+        <td><p><a href="/trails/hike/<%= trail.id %>"><%= trail.name %></a></p></td>
         <td><%= trail.difficulty %></td>
         <td><%= trail.mileage %></td>
         <td><%= trail.rating %></td>   
@@ -24,5 +25,5 @@
     <% }); %>
   </tbody>
 </table>
-
+<div>
 <%- include('../partials/footer') %>

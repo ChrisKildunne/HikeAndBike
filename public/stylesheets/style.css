@@ -2,6 +2,43 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.bike-pic::before,
+.hike-pic::before,
+.i-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: #f0f0f0;
+  opacity: 0.2;
+}
+
+.bike-pic::before {
+  background-image: url("https://i.imgur.com/jUCigN9.jpg");
+}
+
+.hike-pic::before {
+  background-image: url("https://i.imgur.com/nmw4f4n.jpg");
+}
+
+.i-background::before {
+  background-image: url('https://i.imgur.com/wAl6pRX.jpg');
+}
+table.bike-pic {
+  position: relative;
+  overflow: hidden; 
+}
+
+table.hike-pic {
+  position: relative;
+  overflow: hidden;
+}
 
 a {
   color: #00B7FF;
@@ -21,7 +58,7 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: #f0f0f0;
 }
 
 header {
@@ -55,8 +92,33 @@ nav a:hover {
 }
 
 h1, h2, h3 {
-  color: #333;
+  color: #151414;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
+
+h2 {
+  font-size: 32px;
+  color: #336699;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #000000;
+  text-align: center;
+  margin-top: 50px;
+  padding: 0 20px; 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
 
 table {
   border-collapse: collapse;
@@ -117,9 +179,46 @@ form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
+
 }
 
 .review-user img {
   border-radius: 50%;
   height: 40px;
+}
+
+td a {
+  text-decoration: none;
+  color: #336699;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+p a {
+  padding: 6px 10px;
+  background-color: #336699;
+  color: #fff;
+  border-radius: 4px;
+  max-width: 200px; 
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+label {
+  font-weight: bold;
+}
+
+.button-container button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #336699;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }

@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const updateSchema = new Schema ({
   update: String,
-  dateAdded: Date,
+  dateAdded: {
+    type: Date,
+    required: true
+  },
   photo:{
      data: Buffer,
     contentType: String   
