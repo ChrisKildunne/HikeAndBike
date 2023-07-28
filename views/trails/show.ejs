@@ -34,7 +34,7 @@
   <label>Date You Rode the Trail
     <input type="date" name="dateAdded">
   </label>
- <div class="button-container">
+  <div class="button-container">
       <button type="submit" value="Update Trail">Add Trail Update</button>
     </div>
 </form>
@@ -45,8 +45,8 @@
       <th>User</th>
       <th>Update</th>
       <th>Date</th>
-     
-      <th>Trail Update Out of Date? Go Ahead and Delete it</th>
+      <th>Trail Update Out of Date? Go Ahead and Edit it</th>
+      <th>Not Worth Editing? Go Ahead and Delete it</th>
     
     </tr>
 
@@ -55,6 +55,12 @@
         <td class="review-user"><img alt="avatar" src="<%= update.userAvatar %>" referrerpolicy="no-referrer" ><%= update.userName %></td>
         <td><%= update.update %></td>
         <td><%= update.dateAdded.toDateString() %></td>
+        <td>
+          <% if (user?._id.equals(update.user)) { %>
+            <form action= "/trails/bike/<%= trail._id %>/<%= update._id %>/editbike%>" method="GET">            <button type="submit">Edit Trail</button>
+            </form>
+              <% } %>
+        </td>
          <td>
           <% if (user?._id.equals(update.user)) { %>
             <form action="/trails/bike/<%= trail._id %>?_method=DELETE" method="POST">

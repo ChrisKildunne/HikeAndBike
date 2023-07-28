@@ -6,8 +6,8 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 router.post('/trails/bike/:id/show', ensureLoggedIn, updateCtrl.create);
 router.delete('/trails/bike/:id', ensureLoggedIn, updateCtrl.delete);
+router.put('/trails/bike/:id/:updateId', ensureLoggedIn,updateCtrl.updateBike);
+router.get('/trails/bike/:id/:updateId/editbike',ensureLoggedIn, updateCtrl.edit);
 
 
-//router.post('/trails/bike/:id',updateCtrl.edit)
-//router.put('/trails/bike/:id', updateCtrl.update);
 module.exports = router;

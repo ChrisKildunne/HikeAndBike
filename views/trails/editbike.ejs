@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<div class= bike-pic>
+<h2>Edit Update</h2>
+<form action="/trails/bike/<%= trail._id %>/<%=update._id%>?_method=PUT" method="POST">
+   <label>Edit Update
+    <input type="text" name="update" col="6" row="10">
+   </label>
+   <label>Date and Time you rode the trail
+   <input type="datetime-local" name="dateAdded">
+   </label>
+   <button type="submit">Update Parking</button>
+</form>
+</div>
+<%- include('../partials/footer') %>
