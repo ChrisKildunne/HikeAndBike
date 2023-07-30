@@ -6,10 +6,6 @@ const Schema = mongoose.Schema;
 const updateHikeSchema = new Schema ({
   update: String,
   dateAdded: Date,
-  photo:{
-     data: Buffer,
-    contentType: String   
-  },
   parking: {
     type: String,
     enum: ['Lot Full','Almost Full', 'Half Full', 'Pretty Much Empty','Empty']
@@ -34,6 +30,11 @@ const hikeSchema = new Schema({
     },
     mileage: Number,
     rating: Number,
+    description: String,
+    photos: [{ 
+      type: Schema.Types.ObjectId,
+      ref: 'Photo',
+        }],
     updateHike :[updateHikeSchema]
 
   });

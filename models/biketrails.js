@@ -1,16 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var imageSchema = new mongoose.Schema({
-  name: String,
-  desc: String,
-  img:
-  {
-      data: Buffer,
-      contentType: String
-  }
-});
-
 
 const updateSchema = new Schema ({
   update: String,
@@ -18,7 +8,10 @@ const updateSchema = new Schema ({
     type: Date,
     required: true
   },
-  photo: [imageSchema],
+  parking: {
+    type: String,
+    enum: ['Lot Full','Almost Full', 'Half Full', 'Pretty Much Empty','Empty']
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -47,6 +40,10 @@ const bikeSchema = new Schema({
     enum: ['Tech', 'Flow', 'Jump']
   },
   description: String,
+   photos: [{ 
+    type: Schema.Types.ObjectId,
+    ref: 'Photo',
+      }],
   update:[updateSchema]
 }, {
     timestamps: true

@@ -1,12 +1,25 @@
 const createError = require('http-errors');
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const multer = require("multer");
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "Images"); // Remove the space after "Images"
+    },
+    filename: function (req, file, cb) { // Change "photo" to "filename"
+      cb(
+        null, Date.now() + path.extname(file.originalname)
+      );
+    },
+  });
+  
+  const upload = multer({ storage: storage });
 
 
 require('dotenv').config();
@@ -24,6 +37,12 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

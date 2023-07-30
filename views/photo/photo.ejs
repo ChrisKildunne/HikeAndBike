@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<div class="photo-upload">
+  <h2>Upload a Photo</h2>
+  <% if (urlPath.includes('bike')) { %>
+    <form action="/trails/bike/<%= trail._id %>/upload/photo" method="POST" enctype="multipart/form-data">
+  <% } else if (urlPath.includes('hike')) { %>
+    <form action="/trails/hike/<%= trail._id %>/upload/photo" method="POST" enctype="multipart/form-data">
+  <% } %>
+    <label for="photo">Choose a photo:</label>
+    <input type="file" name="photo" accept="image/*">
+    <label>Add a photo caption:  </label>
+    <input type="text" name="caption"> 
+    <button type="submit">Upload Photo</button>
+  </form>
+
+  <% if (photos.length > 0) { %>
+    <% photos.forEach(photo => { %>
+      <img src="data:<%= photo.contentType %>;base64,<%= photo.data.toString('base64') %>" alt="Uploaded Photo">
+      <p><%= photo.caption %></p>
+    <% }) %>
+  <% } else { %>
+    <p>No photo uploaded yet.</p>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,7 +1,10 @@
-<%- include('../partials/header') %>
+<%- include('../../partials/header') %>
 <div class= hike-pic>
-<h2>Edit Parking Status</h2>
+<h2>Edit Update</h2>
 <form action="/trails/hike/<%= trail._id %>/<%=update._id%>?_method=PUT" method="POST">
+  <label>Edit Update
+    <input type="text" name="update" col="6" row="10">
+   </label>
   <label>Parking Status</label>
   <select name="parking">
     <option value="Lot Full">Lot Full</option>
@@ -16,4 +19,4 @@
    <button type="submit">Update Parking</button>
 </form>
 </div>
-<%- include('../partials/footer') %>
+<%- include('../../partials/footer') %>

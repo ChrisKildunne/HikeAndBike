@@ -1,0 +1,88 @@
+<%- include('../../partials/header') %>
+<div class="bike-pic">
+  <h2><%= trailName %> Trail Details</h2>
+  <h4>
+    If you would like to view or add photos of the <%= trailName %> trail you can do so for each update:
+    <p><a href="/trails/bike/<%= trail._id %>/upload/photo">Here</a></p>
+  </h4>
+  <div class="trail-details">
+    <h1><%= trail.name %> Trail</h1>
+    <table class="table">
+      <tr>
+        <td><strong>Difficulty:</strong> <%= trail.difficulty %></td>
+      </tr>
+      <tr>
+        <td><strong>Mileage:</strong> <%= trail.mileage %> miles</td>
+      </tr>
+      <tr>
+        <td><strong>Rating:</strong> <%= trail.rating %> / 5</td>
+      </tr>
+      <tr>
+        <td><strong>Style:</strong> <%= trail.trailStyle %></td>
+      </tr>
+      <tr>
+        <td><strong>Description:</strong> <%= trail.description %></td>
+      </tr>
+    </table>
+  </div>
+
+  <% if (user) { %>
+    <form class="update-form" action="/trails/bike/<%= trail._id %>/showbike" method="POST">
+      <label>Update
+        <input type="text" name="update" col="6" row="10">
+      </label>
+      <label>Trailhead Parking Lot Staus</label>
+      <select name="parking">
+        <option value="Lot Full">Lot Full</option>
+        <option value="Almost Full">Almost Full</option>
+        <option value="Half Full">Half Full</option>
+        <option value="Pretty Much Empty">Pretty Much Empty</option>
+        <option value="Empty">Empty</option>
+      </select>
+      <label>Date and Time you were at the trailhead
+        <input type="datetime-local" name="dateAdded">
+      </label>
+   
+      <div class="button-container">
+        <button type="submit" value="Update Trail">Add Trail Update</button>
+      </div>
+    </form>
+  <% } %>
+
+  <table class='bike-pic'>
+    <tr>
+      <th>User</th>
+      <th>Update</th>
+      <th>Date</th>
+      <th>Parking Lot Status</th>
+      <th>Edit Update</th>
+      <th>Not Worth Editing? Go Ahead and Delete it</th>
+    </tr>
+
+    <% trail.update.forEach(function(update) { %>
+      <tr>
+        <td class="review-user"><img alt="avatar" src="<%= update.userAvatar %>" referrerpolicy="no-referrer"><%= update.userName %></td>
+        <td><%= update.update %></td>
+        <td><%= update.dateAdded.toLocaleString() %></td>
+        <td><%= update.parking %></td>
+        <td>
+          <% if (user?._id.equals(update.user)) { %>
+            <form action="/trails/bike/<%= trail._id %>/<%= update._id %>/edit/editbike%>" method="GET">
+              <button type="submit">Edit</button>
+            </form>
+          <% } %>
+        </td>
+        <td>
+          <% if (user?._id.equals(update.user)) { %>
+            <form action="/trails/bike/<%= trail._id %>?_method=DELETE" method="POST">
+              <input type="hidden" name="updateId" value="<%= update._id %>">
+              <button type="submit">X</button>
+            </form>
+          <% } %>
+        </td>
+      </tr>
+    <% }); %>
+
+  </table>
+</div>
+<%- include('../../partials/footer') %>
