@@ -13,8 +13,6 @@ async function show(req, res) {
     res.redirect('/');
   }
 }
-
-
 async function index(req, res) {
   try {
     const bikingTrails = await BikingTrail.find({});
@@ -23,7 +21,6 @@ async function index(req, res) {
     console.error('Error fetching biking trails:', err);
   }
 }
-
 async function create(req, res) {
   try {
     const newTrailData = {};
@@ -38,7 +35,6 @@ async function create(req, res) {
     res.render('trails/new', { errorMsg: 'Error creating new trail' });
   }
 }
-
 module.exports = {
   index,
   new: newTrail,
