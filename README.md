@@ -11,6 +11,7 @@ Salt Lake Trails Community is a user-driven website designed to provide a platfo
 ![Edit Parking Status](<Screenshot 2023-07-27 at 11.50.57 AM.png>)
 ![Hiking Trail Updates](<Screenshot 2023-07-27 at 11.50.45 AM.png>)
 ![Biking Trail Updates](<Screenshot 2023-07-27 at 11.51.09 AM.png>)
+![Photo](<Screenshot 2023-07-30 at 4.20.27 PM.png>)
 
 ## Technologies Used
 - Front-end: HTML, CSS, JavaScript, EJS (Embedded JavaScript)
@@ -27,5 +28,5 @@ Key Features:
 
 
 ## Next Steps
-- Enable users to post pictures of the trails they were just on,
 - Enable users to post the gps coordinates of where the trail starts and ends.
+-Create a search bar so users can look for specific trails already posted on the website.

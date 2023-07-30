@@ -2,9 +2,8 @@
 <div class="bike-pic">
   <h2><%= trailName %> Trail Details</h2>
   <h4>
-    If you would like to view or add photos of the <%= trailName %> trail you can do so for each update:
-    <p><a href="/trails/bike/<%= trail._id %>/upload/photo">Here</a></p>
-  </h4>
+ If you would like to view or add photos of the <%= trailName %> trail you can do so: <p><a href="/trails/bike/<%= trail._id %>/upload/photo">Here</a></p>
+</h4>
   <div class="trail-details">
     <h1><%= trail.name %> Trail</h1>
     <table class="table">
@@ -67,7 +66,7 @@
         <td><%= update.parking %></td>
         <td>
           <% if (user?._id.equals(update.user)) { %>
-            <form action="/trails/bike/<%= trail._id %>/<%= update._id %>/edit/editbike%>" method="GET">
+            <form action="/trails/bike/<%= trail._id %>/<%= update._id %>/edit/editbike" method="GET">
               <button type="submit">Edit</button>
             </form>
           <% } %>
