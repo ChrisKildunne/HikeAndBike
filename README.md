@@ -27,6 +27,9 @@ Key Features:
   - Parking Status: One of the aspects of Salt Lake Trails Community is its ability to provide real-time parking lot status updates. Users can report the parking status at the trailhead, indicating whether it's full, almost full, half full, or empty, along with the date and time. This information helps others plan their visits accordingly.
   -Add Photos: When a user is on a specific trail they can add a photo of the trail they were just on with a caption. This away someone visiting the site can really visualize the trails they would like to check out!
 
+## Getting Started
+[Click here to check out My Trello Board](https://trello.com/b/ygz2xLzG/project-2)
+
 
 ## Next Steps
 - Enable users to post the gps coordinates of where the trail starts and ends.
